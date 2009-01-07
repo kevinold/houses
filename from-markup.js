@@ -12,8 +12,9 @@ Ext.onReady(function() {
   //  btn.dom.disabled = true;
 
     // create the grid
-    var grid = new Ext.grid.TableGrid("the-table", {
-      stripeRows: true // stripe alternate rows
+    var grid = new Ext.grid.TableGrid("like-table", {
+      stripeRows: true, // stripe alternate rows
+      title: 'Houses we like',
     });
     grid.render();
   //}, false, {single:true}); // run once
