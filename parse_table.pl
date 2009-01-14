@@ -4,7 +4,10 @@ use WWW::Mechanize;
 use URI::URL;
 use HTML::TableExtract;
 use List::MoreUtils qw/any/;
+use Data::Dumper;
 use HousesDB;
+
+my %data;
 my $schema = HousesDB->connect('dbi:SQLite:houses.db');
 my $agent = WWW::Mechanize->new( autocheck => 1 );
 $agent->env_proxy();
@@ -16,13 +19,17 @@ my $detail_detail = $1;
 $detail_detail =~ s/\t+|\s{2,}//g;
 $detail_detail =~ s/<div style="float: right;"><\/div>//;
 my ($address, $city_state_zip) = split /\<br\>/, $detail_detail;
-warn $city_state_zip;
+chop $address;
+$data{address} = $address;
+$city_state_zip =~ /(.*), TN (.*)/;
+$data{city} = $1;
+$data{zip} = $2;
+warn Dumper(\%data);
 
 my @items = ( 'Year Built','Square Feet','Total Full Baths','Total Half Baths', 'Bedrooms', 'Subdivision', 'Acres', 'Listing Price' );
 my $table = HTML::TableExtract->new();
 (my $content = $agent->content) =~ s/\&nbsp;?//g;
 $table->parse($content);
-my %data;
 for my $ts ($table->table_states) {
     for my $row ($ts->rows) {
         if (any { defined($_) ? $row->[0] =~ $_ : undef } @items) {
