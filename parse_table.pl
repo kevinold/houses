@@ -27,6 +27,7 @@ $data{zip} = $2;
 warn Dumper(\%data);
 
 my @items = ( 'Year Built','Square Feet','Total Full Baths','Total Half Baths', 'Bedrooms', 'Subdivision', 'Acres', 'Listing Price' );
+
 my $table = HTML::TableExtract->new();
 (my $content = $agent->content) =~ s/\&nbsp;?//g;
 $table->parse($content);
