@@ -1,22 +1,11 @@
--
- mls: 1016000
- price: $229,900
- city: Mount Juliet
- address: 533 WINDY RD
- bed_bath: 3/2
- sq_ft: 2012
- acres: 0.5
- photo: http://pictures.realtracs.net/1016000/1016000/lr1016000-1.jpg
--
- mls: 1032268
- price: $224,900
- city: Mount Juliet
- address: 4002 TIMBER RIDGE CT
- bed_bath: 3/3
- sq_ft: 2590
- acres:
- photo: http://pictures.realtracs.net/1032000/1032268/lr1032268-1.jpg
- details: http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=1032268&searchkey=d5e31959-0bab-9aa4-55cc-4355daa8f20d&npp=10&sr=1
+finalists:
+    - 1016000
+havent_seen:
+    - 1032268
+
+
+#photo: http://pictures.realtracs.net/1032000/1032268/lr1032268-1.jpg
+#details: http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=1032268&searchkey=d5e31959-0bab-9aa4-55cc-4355daa8f20d&npp=10&sr=1
 
 #-
  #mls:
