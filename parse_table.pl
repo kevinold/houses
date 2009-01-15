@@ -7,6 +7,11 @@ use List::MoreUtils qw/any/;
 use Data::Dumper;
 use HousesDB;
 
+# TODO:
+# - Put mechanzie code into get_kw()
+# - Pull in YAML, loop through MLS #'s and call get_kw() if MLS # isn't found
+# - Add Getopt::Long flags to force and update on certain MLS # (to reflect price change, etc)
+
 my %data;
 my $schema = HousesDB->connect('dbi:SQLite:houses.db');
 my $agent = WWW::Mechanize->new( autocheck => 1 );

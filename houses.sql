@@ -1,6 +1,5 @@
 CREATE TABLE "houses" (
-  "id" integer NOT NULL primary key autoincrement,
-  "mls" varchar(50) default NULL,
+  "mls" varchar(50) default NULL primary key,
   "address" varchar(255) default NULL,
   "city" varchar(50) default NULL,
   "zip" varchar(50) default NULL,
