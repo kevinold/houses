@@ -43,7 +43,7 @@ $query = "SELECT * FROM houses where our_status = '$status'";
 $result = $handle->query($query);
 ?>
 <a name="<?= $status ?>"></a>
-<table id="<?= $status ?>-table">
+<table id="<?= $status ?>-table" class="tablesorter" cellspacing="1">
     <thead>
         <tr>
             <th></th>
@@ -51,15 +51,15 @@ $result = $handle->query($query);
             <th>Address</th>
             <th>City</th>
             <th>Zip</th>
-            <th>BR</th>
-            <th>BA</th>
+            <th>BR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>BA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Price</th>
             <th>Subdivision</th>
-            <th>Year</th>
-            <th>Total Sqft</th>
-            <th>Acres</th>
+            <th>Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Total Sqft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Acres&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Notes</th>
-            <th>URL</th>
+            <th>URL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Status</th>
         </tr>
     </thead>
