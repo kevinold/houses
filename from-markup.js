@@ -12,11 +12,18 @@ Ext.onReady(function() {
   //  btn.dom.disabled = true;
 
     // create the grid
-    var grid = new Ext.grid.TableGrid("like-table", {
+    var driven_by_grid = new Ext.grid.TableGrid("driven_by-table", {
       stripeRows: true, // stripe alternate rows
-      title: 'Houses we like',
+      title: 'Driven By (seen from the road only)',
     });
-    grid.render();
+    driven_by_grid.render();
+
+    var havent_seen_grid = new Ext.grid.TableGrid("havent_seen-table", {
+      stripeRows: true, // stripe alternate rows
+      title: 'Haven\'t seen',
+    });
+    havent_seen_grid.render();
+
   //}, false, {single:true}); // run once
 });
 
