@@ -23,13 +23,14 @@ table td, table th { border:1px solid #ccc;border-collapse:collapse;padding:5px;
 <div class="site">
   <div class="title">
     <a href="/">Houses</a>
-    <a class="extra" href="/">home</a>
+    <!-- <a class="extra" href="/">home</a> -->
   </div>
 
 
 <table id="like-table">
     <thead>
         <tr>
+            <th></th>
             <th>MLS #</th>
             <th>Address</th>
             <th>City</th>
@@ -52,7 +53,7 @@ $handle = new PDO('sqlite:houses.db');
 $query = 'SELECT * FROM houses';
 $result = $handle->query($query);
 while($row = $result->fetch()) {
-    $imgbase = substr($row['mls'], 0, -2) . '000';
+    $imgbase = substr($row['mls'], 0, -3) . '000';
     $baths = $row['total_full_baths'] + $row['total_half_baths'];
 ?>
         <tr>
@@ -62,14 +63,14 @@ while($row = $result->fetch()) {
             <td><?= $row['city'] ?></td> <!-- City -->
             <td><?= $row['zip'] ?></td> <!-- Zip-->
             <td><?= $row['bedrooms'] ?></td> <!-- BR -->
-            <td><?= $row['baths'] ?></td> <!-- BA -->
+            <td><?= $baths ?></td> <!-- BA -->
             <td><?= $row['listing_price'] ?></td> <!-- Price -->
             <td><?= $row['subdivison'] ?></td> <!-- Subdivision -->
             <td><?= $row['year_built'] ?></td> <!-- Year built-->
             <td><?= $row['square_feet'] ?></td> <!-- Total Sqft -->
             <td><?= $row['acres'] ?></td> <!-- Acres -->
             <td><?= $row['notes'] ?></td> <!-- Notes -->
-            <td><a href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=<?= $row['mls'] ?>">View Listing</a></td> <!-- URL -->
+            <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=<?= $row['mls'] ?>">View Listing</a></td> <!-- URL -->
             <td><?= $row['our_status'] ?></td> <!-- Our Status -->
         </tr>
 <?php 
