@@ -57,7 +57,7 @@ while($row = $result->fetch()) {
     $baths = $row['total_full_baths'] + $row['total_half_baths'];
 ?>
         <tr>
-            <td><img src="http://pictures.realtracs.net/<?= $imgbase ?>/<?= $row['mls'] ?>/lr<?= $row['mls'] ?>-1.jpg" /></td>
+            <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=<?= $row['mls'] ?>"><img width="256" src="http://pictures.realtracs.net/<?= $imgbase ?>/<?= $row['mls'] ?>/lr<?= $row['mls'] ?>-1.jpg" border="0" /></a></td>
             <td><?= $row['mls'] ?></td> <!-- MLS -->
             <td><?= $row['address'] ?></td> <!-- Address -->
             <td><?= $row['city'] ?></td> <!-- City -->
@@ -70,7 +70,7 @@ while($row = $result->fetch()) {
             <td><?= $row['square_feet'] ?></td> <!-- Total Sqft -->
             <td><?= $row['acres'] ?></td> <!-- Acres -->
             <td><?= $row['notes'] ?></td> <!-- Notes -->
-            <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=<?= $row['mls'] ?>">View Listing</a></td> <!-- URL -->
+            <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=<?= $row['mls'] ?>">View</a></td> <!-- URL -->
             <td><?= $row['our_status'] ?></td> <!-- Our Status -->
         </tr>
 <?php 
