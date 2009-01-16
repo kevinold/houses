@@ -17,6 +17,7 @@
 <style type="text/css">
 /* table { border:1px solid #bbb;border-collapse:collapse; }
 table td, table th { border:1px solid #ccc;border-collapse:collapse;padding:5px; } */
+/* table td, table th { valign: center; font-size: 120%; } */
 </style>
 <body>
 <a name="top"></a>
@@ -61,12 +62,12 @@ $result = $handle->query($query);
         </tr>
     </thead>
 
+    <tbody>
 <?php
 while($row = $result->fetch()) {
     $imgbase = substr($row['mls'], 0, -3) . '000';
     $baths = $row['total_full_baths'] + $row['total_half_baths'];
 ?>
-    <tbody>
         <tr>
             <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=<?= $row['mls'] ?>"><img width="100" src="http://pictures.realtracs.net/<?= $imgbase ?>/<?= $row['mls'] ?>/lr<?= $row['mls'] ?>-1.jpg" border="0" /></a></td>
             <td><?= $row['mls'] ?></td> <!-- MLS -->
