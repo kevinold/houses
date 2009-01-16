@@ -23,7 +23,8 @@ table.tablesorter tbody td {
 	color: #3D3D3D;
 	padding: 4px;
 	background-color: #FFF;
-	vertical-align: top;
+	/*vertical-align: top;*/
+	font-size: 130%;
 }
 table.tablesorter tbody tr.odd td {
 	background-color:#F0F0F6;

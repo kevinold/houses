@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript">
 	$(function() {		
-		$("#driven_by-table").tablesorter();
+		$("#driven_by-table").tablesorter({headers: { 0:{sorter: false}, 1:{sorter: false}}, widgets: ['zebra']});
 		//$("#driven_by-table").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
 		//$("#options").tablesorter({sortList: [[0,0]], headers: { 3:{sorter: false}, 4:{sorter: false}}});
 	});	
@@ -26,11 +26,6 @@
    <!-- Homepage CSS -->
    <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
 </head>
-<style type="text/css">
-/* table { border:1px solid #bbb;border-collapse:collapse; }
-table td, table th { border:1px solid #ccc;border-collapse:collapse;padding:5px; } */
-/* table td, table th { valign: center; font-size: 120%; } */
-</style>
 <body>
 <a name="top"></a>
 <div class="site">

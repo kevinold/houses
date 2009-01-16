@@ -6,19 +6,21 @@
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <title></title>
    <meta name="author" content="Kevin Old" />
-   <link rel="stylesheet" type="text/css" href="css/ext-all.css" />
-<script type="text/javascript" src="ext-base.js"></script>
-<script type="text/javascript" src="ext-all.js"></script>
-<script type="text/javascript" src="from-markup.js"></script>
+	<link rel="stylesheet" href="css/blue/style.css" type="text/css" media="print, projection, screen" />
+	<script type="text/javascript" src="js/jquery-latest.js"></script>
+	<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript">
+	$(function() {		
+		$("#driven_by-table").tablesorter({headers: { 0:{sorter: false}, 1:{sorter: false}}, widgets: ['zebra']});
+		$("#havent_seen-table").tablesorter({headers: { 0:{sorter: false}, 1:{sorter: false}}, widgets: ['zebra']});
+		//$("#driven_by-table").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
+		//$("#options").tablesorter({sortList: [[0,0]], headers: { 3:{sorter: false}, 4:{sorter: false}}});
+	});	
+	</script>
 
    <!-- Homepage CSS -->
    <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
 </head>
-<style type="text/css">
-/* table { border:1px solid #bbb;border-collapse:collapse; }
-table td, table th { border:1px solid #ccc;border-collapse:collapse;padding:5px; } */
-/* table td, table th { valign: center; font-size: 120%; } */
-</style>
 <body>
 <a name="top"></a>
 <div class="site">
