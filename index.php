@@ -37,9 +37,13 @@ table td, table th { border:1px solid #ccc;border-collapse:collapse;padding:5px;
             <th>BR</th>
             <th>BA</th>
             <th>Price</th>
+            <th>Subdivision</th>
+            <th>Year</th>
             <th>Total Sqft</th>
             <th>Acres</th>
+            <th>Notes</th>
             <th>URL</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -48,51 +52,31 @@ $handle = new PDO('sqlite:houses.db');
 $query = 'SELECT * FROM houses';
 $result = $handle->query($query);
 while($row = $result->fetch()) {
-    //echo 'Name: ' . $house['name'] . '  E-mail: ' . $entry['email'];
+    $imgbase = substr($row['mls'], 0, -2) . '000';
+    $baths = $row['total_full_baths'] + $row['total_half_baths'];
 ?>
         <tr>
-            <td></td> <!-- MLS -->
-            <td><?= $row['address']?></td> <!-- Address -->
-            <td></td> <!-- City -->
-            <td></td> <!-- Zip-->
-            <td></td> <!-- BR -->
-            <td></td> <!-- BA -->
-            <td></td> <!-- Price -->
-            <td></td> <!-- Total Sqft -->
-            <td></td> <!-- Acres -->
-            <td><a href="http://www.realtor.com/search/searchresults.aspx?mlslid=">View Listing</a></td> <!-- URL -->
+            <td><img src="http://pictures.realtracs.net/<?= $imgbase ?>/<?= $row['mls'] ?>/lr<?= $row['mls'] ?>-1.jpg" /></td>
+            <td><?= $row['mls'] ?></td> <!-- MLS -->
+            <td><?= $row['address'] ?></td> <!-- Address -->
+            <td><?= $row['city'] ?></td> <!-- City -->
+            <td><?= $row['zip'] ?></td> <!-- Zip-->
+            <td><?= $row['bedrooms'] ?></td> <!-- BR -->
+            <td><?= $row['baths'] ?></td> <!-- BA -->
+            <td><?= $row['listing_price'] ?></td> <!-- Price -->
+            <td><?= $row['subdivison'] ?></td> <!-- Subdivision -->
+            <td><?= $row['year_built'] ?></td> <!-- Year built-->
+            <td><?= $row['square_feet'] ?></td> <!-- Total Sqft -->
+            <td><?= $row['acres'] ?></td> <!-- Acres -->
+            <td><?= $row['notes'] ?></td> <!-- Notes -->
+            <td><a href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=<?= $row['mls'] ?>">View Listing</a></td> <!-- URL -->
+            <td><?= $row['our_status'] ?></td> <!-- Our Status -->
         </tr>
 <?php 
 } 
 ?>
-        <tr>
-            <td>1009311</td> <!-- MLS -->
-            <td>804 CHANDLER GROVE DR</td> <!-- Address -->
-            <td>Hermitage</td> <!-- City -->
-            <td>37076</td> <!-- Zip-->
-            <td>3</td> <!-- BR -->
-            <td>2.5</td> <!-- BA -->
-            <td>233,000</td> <!-- Price -->
-            <td>2300</td> <!-- Total Sqft -->
-            <td>0.2</td> <!-- Acres -->
-            <td><a href="http://www.realtor.com/search/searchresults.aspx?mlslid=1009311">View Listing</a></td> <!-- URL -->
-        </tr>
     </tbody>
 </table>
-        <!--
-        <tr>
-            <td></td> <!-- MLS -->
-            <td></td> <!-- Address -->
-            <td></td> <!-- City -->
-            <td></td> <!-- Zip-->
-            <td></td> <!-- BR -->
-            <td></td> <!-- BA -->
-            <td></td> <!-- Price -->
-            <td></td> <!-- Total Sqft -->
-            <td></td> <!-- Acres -->
-            <td><a href="http://www.realtor.com/search/searchresults.aspx?mlslid=">View Listing</a></td> <!-- URL -->
-        </tr>
-        -->
 
 <!-- http://www.realtor.com/search/searchresults.aspx?mlslid=1009311 -->
   
