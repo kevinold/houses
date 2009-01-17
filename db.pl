@@ -7,6 +7,8 @@ use List::MoreUtils qw/any/;
 use Data::Dumper;
 use Getopt::Long;
 use YAML qw(LoadFile Dump);
+use FindBin;
+use lib "$FindBin::Bin/lib";
 use HousesDB;
 
 my $update_statuses = 0;
@@ -19,6 +21,7 @@ GetOptions(
 
 # TODO:
 
+my $dsn = "dbi:SQLite:$FindBin::Bin/houses.db";
 my $schema = HousesDB->connect('dbi:SQLite:houses.db');
 my $yaml   = LoadFile('houses.yml');
 
