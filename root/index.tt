@@ -56,7 +56,6 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
             <th>Acres&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Notes</th>
             <th>URL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Status</th>
         </tr>
     </thead>
 
@@ -83,7 +82,6 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
             <td>[% house.acres %]</td> <!-- Acres -->
             <td>[% house.notes %]</td> <!-- Notes -->
             <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=[% house.mls %]">View</a></td> <!-- URL -->
-            <td>[% our_status %]</td> <!-- Our Status -->
         </tr>
     [% END %]
     </tbody>
