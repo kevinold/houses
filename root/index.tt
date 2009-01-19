@@ -1,6 +1,4 @@
 [%
-driven_by = c.stash.driven_by;
-havent_seen = c.stash.havent_seen;
 stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
 %]
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -64,7 +62,7 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
 
     <tbody>
 
-    [% FOREACH house IN driven_by %]
+    [% FOREACH house IN c.stash.$status %]
         [%
            imgbase = house.mls.substr(0, -3) _ '000'
            baths = house.total_full_baths + house.total_half_baths
