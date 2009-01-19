@@ -65,7 +65,8 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
     <tbody>
 
     [% FOREACH house IN driven_by %]
-        [% imgbase = substr(house.mls, 0, -3) _ '000'
+        [%
+           imgbase = house.mls.substr(0, -3) _ '000'
            baths = house.total_full_baths + house.total_half_baths
         %]
 
