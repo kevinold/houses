@@ -7,4 +7,4 @@ killall -9 lighttpd
 sleep 2
 /etc/init.d/houses_prod.sh start
 /etc/init.d/lighttpd start
-
+exit
