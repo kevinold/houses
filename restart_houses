@@ -1,0 +1,10 @@
+#!/bin/bash
+
+/etc/init.d/houses_prod.sh stop
+rm -rf /tmp/obj/* /tmp/cache/* /tmp/houses.cache
+/etc/init.d/lighttpd stop
+killall -9 lighttpd
+sleep 2
+/etc/init.d/houses_prod.sh start
+/etc/init.d/lighttpd start
+

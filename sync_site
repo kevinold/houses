@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Syncing site..."
+git push production
+ssh -l kevin kevinold.com "cd /home/kevin/houses; git pull origin"
+
+echo "Clearing cache & restarting..."
+ssh -l root kevinold.com "/home/kevin/houses/restart_houses"
