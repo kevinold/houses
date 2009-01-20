@@ -12,5 +12,7 @@ CREATE TABLE "houses" (
   "year_built" varchar(4) default NULL,
   "acres" varchar(10) default NULL,
   "notes" text default NULL,
-  "our_status" varchar(10) default NULL
+  "our_status" varchar(10) default NULL,
+  "photo" varchar(15) default NULL,
+  "rank" integer default NULL
   );

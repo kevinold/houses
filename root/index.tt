@@ -68,7 +68,7 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
         %]
 
         <tr>
-            <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=[% house.mls %]"><img width="100" src="http://pictures.realtracs.net/[% imgbase %]/[% house.mls %]/lr[% house.mls%]-1.jpg" border="0" /></a></td>
+            <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=[% house.mls %]"><img width="100" src="http://pictures.realtracs.net/[% imgbase %]/[% house.mls %]/lr[% IF house.photo %][% house.photo %][% ELSE %][% house.mls %]-1[% END %].jpg" border="0" /></a></td>
             <td>[% house.mls %]</td> <!-- MLS -->
             <td>[% house.address %]</td> <!-- Address -->
             <td>[% house.city %]</td> <!-- City -->
