@@ -64,7 +64,7 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
     [% FOREACH house IN c.stash.$status %]
         [%
            imgbase = house.mls.substr(0, -3) _ '000'
-           baths = house.total_full_baths + house.total_half_baths
+           baths = house.total_full_baths + (house.total_half_baths * 0.5)
         %]
 
         <tr>
