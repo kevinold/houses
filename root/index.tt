@@ -40,6 +40,13 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
 
 <a name="[% status %]"></a>
 <table id="[% status %]-table" class="tablesorter" cellspacing="1">
+    <caption>
+    [% IF status == 'driven_by' %]
+    Driven By - Would like to schedule showing to see
+    [% ELSIF status == 'havent_seen' %]
+    Haven't Seen - Haven't driven by to see yard, neighborhood prior to scheduling a showing
+    [% END %]
+    </caption>
     <thead>
         <tr>
             <th></th>
@@ -61,7 +68,7 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
 
     <tbody>
 
-    [% FOREACH house IN c.stash.$status %]
+    [% FOREACH house IN c.stash.$status.nsort('rank') %]
         [%
            imgbase = house.mls.substr(0, -3) _ '000'
            baths = house.total_full_baths + (house.total_half_baths * 0.5)

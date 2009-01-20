@@ -15,8 +15,8 @@ my $update_statuses = 0;
 my $load_new        = 0;
 
 GetOptions(
-    'us'       => \$update_statuses,
-    'load_new' => \$load_new,
+    'us|update_status' => \$update_statuses,
+    'ln|load_new' => \$load_new,
 );
 
 # TODO:
@@ -32,8 +32,10 @@ sub update_statuses {
 
     foreach my $key (keys %{$yaml}) {
         my $ids = $yaml->{$key};
+        my $rank = 1;
         foreach my $id (@$ids) {
-            $schema->resultset('Houses')->find({mls => $id})->update({our_status => lc $key});
+            $schema->resultset('Houses')->find({mls => $id})->update({our_status => $key, rank => ($key eq 'driven_by' ? $rank : undef)});
+            $rank++;
         }
     }
 
