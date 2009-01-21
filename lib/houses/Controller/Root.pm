@@ -29,8 +29,8 @@ houses::Controller::Root - Root Controller for houses
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    my $driven_by = [$c->model('Houses')->search({ our_status => 'driven_by', })->all];
-    my $havent_seen = [$c->model('Houses')->search({ our_status => 'havent_seen', })->all];
+    my $driven_by = [$c->model('DB::Houses')->search({ our_status => 'driven_by', })->all];
+    my $havent_seen = [$c->model('DB::Houses')->search({ our_status => 'havent_seen', })->all];
     $c->stash->{driven_by} = $driven_by;
     $c->stash->{havent_seen} = $havent_seen;
     $c->stash->{template} = 'index.tt';
