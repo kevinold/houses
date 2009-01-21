@@ -5,7 +5,7 @@ use inc::Module::Install;
 name 'houses';
 all_from 'lib/houses.pm';
 
-requires 'Catalyst::Runtime' => '5.7015';
+requires 'Catalyst::Runtime' => '5.71000';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Action::RenderView';
