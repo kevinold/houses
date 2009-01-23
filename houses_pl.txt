@@ -1,7 +1,5 @@
 #!/usr/bin/perl
 
-
-
 use warnings;
 use strict;
 #Written by Kevin at Tue Jan 13 21:55:15 2009
