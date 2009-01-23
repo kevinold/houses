@@ -1,5 +1,5 @@
 [%
-stats = ['driven_by', 'havent_seen', 'finalist'] #, 'shown', 'dislike';
+stats = [ 'finalist', 'driven_by', 'havent_seen'] #, 'shown', 'dislike';
 %]
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
