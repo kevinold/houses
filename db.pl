@@ -34,7 +34,7 @@ sub update_statuses {
         my $ids = $yaml->{$key};
         my $rank = 1;
         foreach my $id (@$ids) {
-            $schema->resultset('Houses')->find({mls => $id})->update({our_status => $key, rank => ($key eq 'driven_by' ? $rank : undef)});
+            $schema->resultset('Houses')->find({mls => $id})->update({our_status => $key, rank => ($key =~ /driven_by|finalist/ ? $rank : undef)});
             $rank++;
         }
     }

@@ -1,5 +1,5 @@
 [%
-stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
+stats = ['driven_by', 'havent_seen', 'finalist'] #, 'shown', 'dislike';
 %]
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -14,6 +14,7 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
 	<script type="text/javascript" src="/static/js/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript">
 	$(function() {		
+		$("#finalist-table").tablesorter({headers: { 0:{sorter: false}, 1:{sorter: false}}, widgets: ['zebra']});
 		$("#driven_by-table").tablesorter({headers: { 0:{sorter: false}, 1:{sorter: false}}, widgets: ['zebra']});
 		$("#havent_seen-table").tablesorter({headers: { 0:{sorter: false}, 1:{sorter: false}}, widgets: ['zebra']});
 		//$("#driven_by-table").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
@@ -30,6 +31,7 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
   <div class="title">
     <a href="/">Houses</a>
     <!-- <a class="extra" href="/">home</a> -->
+    <a class="extra" href="#finalist">Finalists</a>
     <a class="extra" href="#driven_by">Driven By</a>
     <a class="extra" href="#havent_seen">Haven't Seen</a>
   </div>
@@ -45,6 +47,8 @@ stats = ['driven_by', 'havent_seen'] #, 'finalist', 'shown', 'dislike';
     Driven By - Would like to schedule showing to see
     [% ELSIF status == 'havent_seen' %]
     Haven't Seen - Haven't driven by to see yard, neighborhood prior to scheduling a showing
+    [% ELSIF status == 'finalist' %]
+    Finalists - Have had a showing and are seriously considering for purchase
     [% END %]
     </caption>
     <thead>
