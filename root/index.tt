@@ -10,8 +10,10 @@ stats = [ 'finalist', 'driven_by', 'havent_seen'] #, 'shown', 'dislike';
    <title></title>
    <meta name="author" content="Kevin Old" />
 	<link rel="stylesheet" href="/static/css/blue/style.css" type="text/css" media="print, projection, screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery.lightbox-0.5.css" media="screen" />
 	<script type="text/javascript" src="/static/js/jquery-1.3.1.min.js"></script>
 	<script type="text/javascript" src="/static/js/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.lightbox-0.5.min.js"></script>
 	<script type="text/javascript">
 	$(function() {		
 		$("#finalist-table").tablesorter({headers: { 0:{sorter: false}, 1:{sorter: false}}, widgets: ['zebra']});
@@ -19,6 +21,8 @@ stats = [ 'finalist', 'driven_by', 'havent_seen'] #, 'shown', 'dislike';
 		$("#havent_seen-table").tablesorter({headers: { 0:{sorter: false}, 1:{sorter: false}}, widgets: ['zebra']});
 		//$("#driven_by-table").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
 		//$("#options").tablesorter({sortList: [[0,0]], headers: { 3:{sorter: false}, 4:{sorter: false}}});
+    
+        $('a.lightbox').lightBox(); // Select all links with lightbox class
 	});	
 	</script>
 
@@ -76,10 +80,30 @@ stats = [ 'finalist', 'driven_by', 'havent_seen'] #, 'shown', 'dislike';
         [%
            imgbase = house.mls.substr(0, -3) _ '000'
            baths = house.total_full_baths + (house.total_half_baths * 0.5)
+           webpath = '/static/images/houses/' _ house.mls _ '/'
+           dirpath = c.config.root _ '/static/images/houses/' _ house.mls _ '/'
         %]
-
+    
         <tr>
-            <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=[% house.mls %]"><img width="100" src="http://pictures.realtracs.net/[% imgbase %]/[% house.mls %]/lr[% IF house.photo %][% house.photo %][% ELSE %][% house.mls %]-1[% END %].jpg" border="0" /></a></td>
+            <td><a target="_blank" href="http://www.mlsfinder.com/tn_mtrmls/kw_493/index.cfm?action=listing_detail&property_id=[% house.mls %]"><img width="100" src="http://pictures.realtracs.net/[% imgbase %]/[% house.mls %]/lr[% IF house.photo %][% house.photo %][% ELSE %][% house.mls %]-1[% END %].jpg" border="0" /></a><br/>
+
+[% TRY %]
+[% USE dir = Directory(dirpath) %]
+    [% IF dir %]
+    [% FOREACH file = dir.files.nsort %]
+    <a class="[% house.mls %]" [% UNLESS loop.first %]style="display:none"[% END %] href="[% webpath %][% file.name %]">More</a>
+    [% END %]
+	<script type="text/javascript">
+	$(function() {		
+        $('a.[% house.mls %]').lightBox();
+	});	
+	</script>
+    [% END %]
+[% CATCH %]
+[% END %]
+
+
+</td>
             <td>[% house.mls %]</td> <!-- MLS -->
             <td>[% house.address %]</td> <!-- Address -->
             <td>[% house.city %]</td> <!-- City -->
