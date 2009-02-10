@@ -91,7 +91,7 @@ stats = [ 'finalist', 'driven_by', 'havent_seen'] #, 'shown', 'dislike';
 [% USE dir = Directory(dirpath) %]
     [% IF dir %]
     [% FOREACH file = dir.files.nsort %]
-    <a class="[% house.mls %]" [% UNLESS loop.first %]style="display:none"[% END %] href="[% webpath %][% file.name %]">More</a>
+    <a class="[% house.mls %]" [% UNLESS loop.first %]style="display:none"[% END %] href="[% webpath %][% file.name %]"><b>View More Photos</b></a>
     [% END %]
 	<script type="text/javascript">
 	$(function() {		
